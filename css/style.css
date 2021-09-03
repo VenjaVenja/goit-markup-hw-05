@@ -9,6 +9,8 @@
   --button-main-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   --button-filers-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  --time-duration: 250ms;
+  --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 p,
@@ -101,6 +103,9 @@ img {
   border-bottom: 1px solid #ececec;
 }
 
+.link {
+  transition: var(--time-duration) var(--time-function);
+}
 /* Main nav */
 
 .main-nav {
@@ -322,6 +327,8 @@ img {
   padding: 6px 22px;
   color: var(--titel-text-color);
   background-color: #f5f4fa;
+  transition: background-color var(--time-duration) var(--time-function),
+    color var(--time-duration) var(--time-function);
 
   font-weight: 500;
   font-size: 16px;
@@ -433,8 +440,38 @@ img {
   margin-right: 30px;
 }
 
+/* portfolio works examples */
+
 .works-list .example {
   text-decoration: none;
+}
+
+.works-list .text {
+  font-size: 16px;
+  line-height: 1.87;
+}
+
+.example-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.example-top-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: calc(28 / 18);
+  color: var(--primary-white-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform var(--time-duration) var(--time-function);
+}
+
+.example:hover .example-top-text {
+  transform: translateY(0%);
 }
 
 .cards-info .titel {
@@ -442,11 +479,6 @@ img {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
-}
-
-.works-list .text {
-  font-size: 16px;
-  line-height: 1.87;
 }
 
 .cards {
@@ -568,6 +600,12 @@ img {
   border-radius: 50%;
   background-color: var(--primary-white-color);
   fill: #afb1b8;
+  transition: background-color var(--time-duration) var(--time-function),
+    fill var(--time-duration) var(--time-function);
+}
+
+.socials-icon {
+  transition: fill var(--time-duration) var(--time-function);
 }
 
 .socials-link:hover,
@@ -670,6 +708,7 @@ img {
   text-decoration: none;
   font-size: 14px;
   line-height: 1.72;
+  transition: var(--time-duration) var(--time-function);
 }
 
 .footer .link {
