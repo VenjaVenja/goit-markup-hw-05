@@ -53,6 +53,18 @@ img {
   clip: rect(0 0 0 0);
 }
 
+@keyframes shake-logo {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
 /* Container */
 
 .container {
@@ -115,8 +127,15 @@ img {
 
 /* logo */
 
+.header-logo:hover,
+.footer-logo:hover {
+  animation: shake-logo 400ms var(--time-function) infinite;
+}
+
 .page-header .logo {
   color: var(--titel-text-color);
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .footer .logo {
